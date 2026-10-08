@@ -88,11 +88,12 @@ def test_percentage_good_returns_70_for_7_out_of_10_valid():
     grammar.check("Since making test participation mandatory for all employees,") #fail 1
     grammar.check("the quality of out test subjects has risen dramatically.") #fail 2
     grammar.check("Employee retention, however has not.")
-    grammar.check("As a result, you may have heard we're gonna phase out human testing")
+    grammar.check("As a result, you may have heard we're gonna phase out human testing.")
     grammar.check("There's still a few things to wrap up though.")
     grammar.check("First up, conversion gel.")
-    grammar.check("The bean counters told me we literally could not afford to buy seven dollars worth of moon rocks, much less seventy million")
+    grammar.check("The bean counters told me we literally could not afford to buy seven dollars worth of moon rocks, much less seventy million.")
     grammar.check("Bought 'em anyway.")
     grammar.check("Ground 'em up, mixed em into a gel.")
     grammar.check("And guess what? Ground up moon rocks are pure poision")#fail 3
+    assert grammar.percentage_good() == 70
 
