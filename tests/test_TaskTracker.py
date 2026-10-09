@@ -42,3 +42,11 @@ def test_complete_removes_task_from_list():
     tasks.add("Now use the Aperture Science Unstationary Scaffold to reach the chamberlock.")
     tasks.complete(3)
     assert tasks.show() ==  [(1, "Walk the dog"), (2, "Please escort your Companion Cube to the Aperture Science Emergency Intelligence Incinerator."), (3, "Now use the Aperture Science Unstationary Scaffold to reach the chamberlock.")]
+
+def test_complete_raises_error_if_index_not_valid():
+    tasks = TaskTracker()
+    tasks.add("Walk the dog")
+    tasks.add("Walk the zard")
+    with pytest.raises(Exception) as e:
+        tasks.complete(3)
+    assert str(e.value) == "Invalid task number provided, pick a task in this range 1:2."
